@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TextFieldDelegate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X05-dw-9kl">
+                                <rect key="frame" x="29" y="28" width="542" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAq-a9-z07">
+                                <rect key="frame" x="29" y="66" width="542" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9p-0F-hk7">
+                                <rect key="frame" x="522" y="103" width="51" height="31"/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write something!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZX6-HU-zgq">
+                                <rect key="frame" x="29" y="103" width="485" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fAq-a9-z07" firstAttribute="top" secondItem="X05-dw-9kl" secondAttribute="bottom" constant="8" id="Aah-Uh-PZ6"/>
+                            <constraint firstItem="ZX6-HU-zgq" firstAttribute="top" secondItem="fAq-a9-z07" secondAttribute="bottom" constant="7" id="TkB-fQ-0Ge"/>
+                            <constraint firstItem="X05-dw-9kl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="eJW-D4-wUx"/>
+                            <constraint firstItem="ZX6-HU-zgq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="fmV-u9-QPl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M9p-0F-hk7" secondAttribute="trailing" constant="9" id="h79-1P-lxL"/>
+                            <constraint firstItem="fAq-a9-z07" firstAttribute="centerX" secondItem="X05-dw-9kl" secondAttribute="centerX" id="hOF-MY-KbJ"/>
+                            <constraint firstItem="M9p-0F-hk7" firstAttribute="leading" secondItem="ZX6-HU-zgq" secondAttribute="trailing" constant="8" id="isH-ub-Wgx"/>
+                            <constraint firstItem="M9p-0F-hk7" firstAttribute="top" secondItem="fAq-a9-z07" secondAttribute="bottom" constant="7" id="oNH-Y5-jYa"/>
+                            <constraint firstItem="X05-dw-9kl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xvP-2L-2X8"/>
+                            <constraint firstItem="X05-dw-9kl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="xxo-06-7ug"/>
+                            <constraint firstItem="fAq-a9-z07" firstAttribute="width" secondItem="X05-dw-9kl" secondAttribute="width" id="yqK-Et-czE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cashTextField" destination="fAq-a9-z07" id="Bmp-NK-vKi"/>
+                        <outlet property="lockableTextField" destination="ZX6-HU-zgq" id="MdY-rp-HmY"/>
+                        <outlet property="textEnableSwitch" destination="M9p-0F-hk7" id="SIn-yW-aQX"/>
+                        <outlet property="zipTextField" destination="X05-dw-9kl" id="dGh-ht-bSu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="368"/>
+        </scene>
+    </scenes>
+</document>
