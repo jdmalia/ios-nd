@@ -18,14 +18,11 @@ struct Ship {
     let isWooden: Bool
     
 
-// TODO: Add the computed property, cells.
     var cells: [GridLocation] {
         get {
-            // Hint: These two constants will come in handy
             let start = self.location
             let end: GridLocation = ShipEndLocation(self)
             
-            // Hint: The cells getter should return an array of GridLocations.
             var occupiedCells = [GridLocation]()
             occupiedCells.append(start)
             
@@ -52,7 +49,7 @@ struct Ship {
     }
     
     var hitTracker: HitTracker
-// TODO: Add a getter for sunk. Calculate the value returned using hitTracker.cellsHit.
+    
     var sunk: Bool {
         for (_, hit) in hitTracker.cellsHit
         {
@@ -90,20 +87,36 @@ struct Ship {
 
 }
 
-// TODO: Change Cell protocol to PenaltyCell and add the desired properties
-protocol Cell {
+protocol PenaltyCell {
     var location: GridLocation {get}
+    var guaranteesHit: Bool {get}
+    var penaltyText: String {get}
 }
 
-// TODO: Adopt and implement the PenaltyCell protocol
-struct Mine: Cell {
+struct Mine: PenaltyCell {
     let location: GridLocation
+    var guaranteesHit: Bool
+    var penaltyText: String
 
+    init (location: GridLocation)
+    {
+        self.location = location
+        self.guaranteesHit = false
+        self.penaltyText = "You hit a mine!"
+    }
 }
 
-// TODO: Adopt and implement the PenaltyCell protocol
-struct SeaMonster: Cell {
+struct SeaMonster: PenaltyCell {
     let location: GridLocation
+    var guaranteesHit: Bool
+    var penaltyText: String
+    
+    init (location: GridLocation)
+    {
+        self.location = location
+        self.guaranteesHit = true
+        self.penaltyText = "You hit a sea monster!"
+    }
 }
 
 class ControlCenter {
