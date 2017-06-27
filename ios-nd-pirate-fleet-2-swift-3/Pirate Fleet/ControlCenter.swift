@@ -64,11 +64,30 @@ struct Ship {
         return true
     }
 
-// TODO: Add custom initializers
-//    init(length: Int) {
-//        self.length = length
-//        self.hitTracker = HitTracker()
-//    }
+    init(length: Int)
+    {
+        self.init(length: length, location: GridLocation(x: 0, y: 0),isVertical: true)
+    }
+    
+    init(length: Int, location: GridLocation, isVertical: Bool)
+    {
+        self.init(length: length, location: location, isVertical: isVertical, isWooden: true)
+    }
+    
+    init(length: Int, location: GridLocation, isVertical: Bool, isWooden: Bool)
+    {
+        self.init(length: length, location: location, isVertical: isVertical, isWooden: isWooden, hitTracker: HitTracker())
+    }
+    
+    init(length: Int, location: GridLocation, isVertical: Bool, isWooden: Bool, hitTracker: HitTracker)
+    {
+        self.length = length
+        self.location = location
+        self.isVertical = isVertical
+        self.isWooden = isWooden
+        self.hitTracker = hitTracker
+    }
+
 }
 
 // TODO: Change Cell protocol to PenaltyCell and add the desired properties
@@ -100,10 +119,10 @@ class ControlCenter {
         let mediumShip2 = Ship(length: 3, location: GridLocation(x: 3, y: 1), isVertical: false, isWooden: false, hitTracker: HitTracker())
         human.addShipToGrid(mediumShip2)
         
-        let largeShip = Ship(length: 4, location: GridLocation(x: 6, y: 3), isVertical: true, isWooden: false, hitTracker: HitTracker())
+        let largeShip = Ship(length: 4, location: GridLocation(x: 6, y: 3), isVertical: true, isWooden: true, hitTracker: HitTracker())
         human.addShipToGrid(largeShip)
         
-        let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true, isWooden: false, hitTracker: HitTracker())
+        let xLargeShip = Ship(length: 5, location: GridLocation(x: 7, y: 2), isVertical: true, isWooden: true, hitTracker: HitTracker())
         human.addShipToGrid(xLargeShip)
         
         let mine1 = Mine(location: GridLocation(x: 6, y: 0))
