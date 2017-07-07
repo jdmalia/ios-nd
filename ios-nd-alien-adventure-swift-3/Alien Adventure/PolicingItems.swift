@@ -8,8 +8,37 @@
 
 extension Hero {
     
-    func policingItems(inventory: [UDItem], policingFilter: (UDItem) throws -> Void) -> [UDPolicingError:Int] {
-        return [UDPolicingError:Int]()
+    func policingItems(inventory: [UDItem], policingFilter: (UDItem) throws -> Void) -> [UDPolicingError:Int]
+    {
+        var UDPolicingErrorDict = [UDPolicingError:Int]()
+        UDPolicingErrorDict[UDPolicingError.itemFromCunia] = 0
+        UDPolicingErrorDict[UDPolicingError.nameContainsLaser] = 0
+        UDPolicingErrorDict[UDPolicingError.valueLessThan10] = 0
+        
+        for item in inventory
+        {
+            do
+            {
+                try policingFilter(item)
+                
+            } catch UDPolicingError.itemFromCunia
+            {
+                UDPolicingErrorDict[UDPolicingError.itemFromCunia]! += 1
+                
+            } catch UDPolicingError.nameContainsLaser
+            {
+                UDPolicingErrorDict[UDPolicingError.nameContainsLaser]! += 1
+                
+            } catch UDPolicingError.valueLessThan10
+            {
+                UDPolicingErrorDict[UDPolicingError.valueLessThan10]! += 1
+                
+            } catch
+            {
+                print("We don't handle that error.")
+            }
+        }
+        return UDPolicingErrorDict;
     }    
 }
 
