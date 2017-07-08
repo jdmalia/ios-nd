@@ -8,8 +8,18 @@
 
 extension Hero {
     
-    func sortLeastToGreatest(inventory: [UDItem]) -> [UDItem] {
-        return [UDItem]()
+    func sortLeastToGreatest(inventory: [UDItem]) -> [UDItem]
+    {
+        func compareItems(_ a: UDItem, _ b: UDItem) -> Bool
+        {
+            if a.rarity.rawValue == b.rarity.rawValue
+            {
+                return a.baseValue < b.baseValue
+            }
+            return a.rarity.rawValue < b.rarity.rawValue
+            
+        }
+        return inventory.sorted(by: compareItems)
     }
     
 }
